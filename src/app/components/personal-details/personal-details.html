@@ -1,0 +1,65 @@
+<div class="card">
+  <h2>פרטים אישיים</h2>
+
+  <form #personalForm="ngForm">
+
+    <label for="fullName">שם מלא</label>
+    <input
+      id="fullName"
+      type="text"
+      name="fullName"
+      [(ngModel)]="personalDetails.fullName"
+      #fullName="ngModel"
+      required
+      (ngModelChange)="onFormChange()">
+
+    <div class="error" *ngIf="fullName.invalid && fullName.touched">
+      שם מלא הוא שדה חובה
+    </div>
+
+    <label for="email">אימייל</label>
+    <input
+      id="email"
+      type="email"
+      name="email"
+      [(ngModel)]="personalDetails.email"
+      #email="ngModel"
+      required
+      email
+      (ngModelChange)="onFormChange()">
+
+    <div class="error" *ngIf="email.invalid && email.touched">
+      יש להזין אימייל תקין
+    </div>
+
+    <label for="phone">טלפון</label>
+    <input
+      id="phone"
+      type="text"
+      name="phone"
+      [(ngModel)]="personalDetails.phone"
+      #phone="ngModel"
+      required
+      pattern="^[0-9]+$"
+      (ngModelChange)="onFormChange()">
+
+    <div class="error" *ngIf="phone.invalid && phone.touched">
+      הטלפון חייב להכיל ספרות בלבד
+    </div>
+
+    <label for="summary">תיאור קצר</label>
+    <textarea
+      id="summary"
+      name="summary"
+      rows="5"
+      [(ngModel)]="personalDetails.summary"
+      #summary="ngModel"
+      required
+      (ngModelChange)="onFormChange()"></textarea>
+
+    <div class="error" *ngIf="summary.invalid && summary.touched">
+      תיאור קצר הוא שדה חובה
+    </div>
+
+  </form>
+</div>

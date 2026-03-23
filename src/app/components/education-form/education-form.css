@@ -1,0 +1,92 @@
+.card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.education-box {
+  border: 1px solid #dddddd;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 18px;
+  background: #fafafa;
+}
+
+h3, h4 {
+  margin-top: 0;
+}
+
+label {
+  display: block;
+  margin-top: 12px;
+  margin-bottom: 6px;
+  font-weight: bold;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #cfcfcf;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+.checkbox-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.checkbox-line input {
+  width: auto;
+}
+
+.course-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.course-row input {
+  flex: 1;
+}
+
+.courses-box {
+  margin-top: 15px;
+}
+
+.error {
+  color: #c62828;
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+button {
+  border: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 12px;
+}
+
+.primary-btn {
+  background: #1976d2;
+  color: white;
+}
+
+.secondary-btn {
+  background: #eeeeee;
+}
+
+.danger-btn {
+  background: #d32f2f;
+  color: white;
+}

@@ -1,0 +1,114 @@
+<div class="card" [formGroup]="educationForm">
+  <h2>השכלה</h2>
+
+  <div formArrayName="educationItems">
+    <div
+      class="education-box"
+      *ngFor="let education of educationItems.controls; let i = index"
+      [formGroupName]="i">
+
+      <h3>פריט השכלה {{ i + 1 }}</h3>
+
+      <label>מוסד לימודים</label>
+      <input type="text" formControlName="institution">
+
+      <div class="error" *ngIf="education.get('institution')?.invalid && education.get('institution')?.touched">
+        שדה חובה
+      </div>
+
+      <label>סוג תואר</label>
+      <select formControlName="degreeType">
+        <option value="">בחרי</option>
+        <option value="תעודה">תעודה</option>
+        <option value="תואר ראשון">תואר ראשון</option>
+        <option value="תואר שני">תואר שני</option>
+        <option value="דוקטורט">דוקטורט</option>
+      </select>
+
+      <div class="error" *ngIf="education.get('degreeType')?.invalid && education.get('degreeType')?.touched">
+        שדה חובה
+      </div>
+
+      <label>תחום לימודים</label>
+      <input type="text" formControlName="fieldOfStudy">
+
+      <div class="error" *ngIf="education.get('fieldOfStudy')?.invalid && education.get('fieldOfStudy')?.touched">
+        שדה חובה
+      </div>
+
+      <label>תאריך התחלה</label>
+      <input type="date" formControlName="startDate">
+
+      <div class="error" *ngIf="education.get('startDate')?.invalid && education.get('startDate')?.touched">
+        שדה חובה
+      </div>
+
+      <label>סטטוס לימודים</label>
+      <select formControlName="status">
+        <option value="">בחרי</option>
+        <option value="סיימתי">סיימתי</option>
+        <option value="לומדת כרגע">לומדת כרגע</option>
+      </select>
+
+      <div class="error" *ngIf="education.get('status')?.invalid && education.get('status')?.touched">
+        שדה חובה
+      </div>
+
+      <div *ngIf="education.get('status')?.value !== 'לומדת כרגע'">
+        <label>תאריך סיום</label>
+        <input type="date" formControlName="endDate">
+
+        <div class="error" *ngIf="education.get('endDate')?.invalid && education.get('endDate')?.touched">
+          שדה חובה
+        </div>
+      </div>
+
+      <div class="error" *ngIf="education.errors?.['invalidDateRange']">
+        תאריך הסיום חייב להיות מאוחר מתאריך ההתחלה
+      </div>
+
+      <label>ממוצע ציונים</label>
+      <input type="number" formControlName="gradeAverage">
+
+      <div class="error" *ngIf="education.get('gradeAverage')?.invalid && education.get('gradeAverage')?.touched">
+        ממוצע חייב להיות בין 0 ל־100
+      </div>
+
+      <label class="checkbox-line">
+        <input type="checkbox" formControlName="honors">
+        הצטיינות
+      </label>
+
+      <label>תיאור קצר</label>
+      <textarea rows="4" formControlName="description"></textarea>
+
+      <div class="error" *ngIf="education.get('description')?.invalid && education.get('description')?.touched">
+        שדה חובה
+      </div>
+
+      <div formArrayName="courses" class="courses-box">
+        <h4>קורסים מרכזיים</h4>
+
+        <div *ngFor="let course of getCourses(i).controls; let j = index" class="course-row">
+          <input type="text" [formControlName]="j" placeholder="שם הקורס">
+
+          <button type="button" class="danger-btn" (click)="removeCourse(i, j)">
+            הסר קורס
+          </button>
+        </div>
+
+        <button type="button" class="secondary-btn" (click)="addCourse(i)">
+          הוסף קורס
+        </button>
+      </div>
+
+      <button type="button" class="danger-btn" (click)="removeEducationItem(i)">
+        מחק פריט השכלה
+      </button>
+    </div>
+  </div>
+
+  <button type="button" class="primary-btn" (click)="addEducationItem()">
+    הוסף פריט השכלה
+  </button>
+</div>

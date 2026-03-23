@@ -1,0 +1,40 @@
+<div class="card preview-card">
+  <h2>תצוגת קורות חיים</h2>
+
+  <section class="preview-section">
+    <h3>פרטים אישיים</h3>
+    <p><strong>שם מלא:</strong> {{ personalDetails.fullName }}</p>
+    <p><strong>אימייל:</strong> {{ personalDetails.email }}</p>
+    <p><strong>טלפון:</strong> {{ personalDetails.phone }}</p>
+    <p><strong>תיאור קצר:</strong> {{ personalDetails.summary }}</p>
+  </section>
+
+  <section class="preview-section">
+    <h3>השכלה</h3>
+
+    <div *ngIf="educationList.length === 0">
+      עדיין לא הוזנו פריטי השכלה
+    </div>
+
+    <div *ngFor="let edu of educationList; let i = index" class="education-preview">
+      <h4>פריט {{ i + 1 }}</h4>
+
+      <p><strong>מוסד לימודים:</strong> {{ edu.institution }}</p>
+      <p><strong>סוג תואר:</strong> {{ edu.degreeType }}</p>
+      <p><strong>תחום לימודים:</strong> {{ edu.fieldOfStudy }}</p>
+      <p><strong>תאריך התחלה:</strong> {{ edu.startDate }}</p>
+      <p><strong>תאריך סיום:</strong> {{ edu.status === 'לומדת כרגע' ? 'לומדת כרגע' : edu.endDate }}</p>
+      <p><strong>סטטוס:</strong> {{ edu.status }}</p>
+      <p><strong>ממוצע ציונים:</strong> {{ edu.gradeAverage }}</p>
+      <p><strong>הצטיינות:</strong> {{ edu.honors ? 'כן' : 'לא' }}</p>
+      <p><strong>תיאור קצר:</strong> {{ edu.description }}</p>
+
+      <div>
+        <strong>קורסים מרכזיים:</strong>
+        <ul>
+          <li *ngFor="let course of edu.courses">{{ course }}</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,18 @@
+<div class="container">
+  <h1>Builder CV</h1>
+
+  <div class="grid">
+    <app-personal-details
+      (personalDetailsChange)="updatePersonalDetails($event)">
+    </app-personal-details>
+
+    <app-education-form
+      (educationListChange)="updateEducationList($event)">
+    </app-education-form>
+  </div>
+
+  <app-cv-preview
+    [personalDetails]="personalDetails"
+    [educationList]="educationList">
+  </app-cv-preview>
+</div>

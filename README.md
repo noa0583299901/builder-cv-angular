@@ -1,95 +1,59 @@
-# Builder CV - Angular Forms Project
+# BuilderCv
 
-## Project Description
+This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.4.
 
-Builder CV is an Angular application for creating a live CV preview.
-The system allows the user to enter personal details and education details, while the CV display updates in real time.
+## Development server
 
-This project demonstrates the use of both:
-
-* Template Driven Forms
-* Reactive Forms
-
----
-
-## Features
-
-### Personal Details Form (Template Driven)
-
-Includes:
-
-* Full name
-* Email
-* Phone number
-* Short description
-
-Validations:
-
-* All fields are required
-* Email must be valid
-* Phone must contain digits only
-
----
-
-### Education Form (Reactive Forms)
-
-Includes:
-
-* Institution
-* Degree type
-* Field of study
-* Start date
-* End date
-* Status
-* Grade average
-* Courses (dynamic)
-* Honors
-* Description
-
-Features:
-
-* Add/remove education items
-* Add/remove courses dynamically
-
-Validations:
-
-* All fields required
-* End date optional if currently studying
-* Grade between 0–100
-* End date must be after start date
-
----
-
-## Live Preview
-
-The CV updates automatically as the user types.
-
----
-
-## Technologies
-
-* Angular
-* TypeScript
-* HTML / CSS
-* FormsModule
-* ReactiveFormsModule
-
----
-
-## How to Run
+To start a local development server, run:
 
 ```bash
-npm install
 ng serve
 ```
 
-Then open:
-http://localhost:4200
+Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
----
+## Code scaffolding
 
-## Notes
+Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
 
-* Personal Details → Template Driven Form
-* Education Form → Reactive Form
-* The project uses component-based architecture and data binding
+```bash
+ng generate component component-name
+```
+
+For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+
+```bash
+ng generate --help
+```
+
+## Building
+
+To build the project run:
+
+```bash
+ng build
+```
+
+This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+
+## Running unit tests
+
+To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+
+```bash
+ng test
+```
+
+## Running end-to-end tests
+
+For end-to-end (e2e) testing, run:
+
+```bash
+ng e2e
+```
+
+Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+
+## Additional Resources
+
+For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
